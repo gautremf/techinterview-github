@@ -1,5 +1,29 @@
 # Technical Interview Homework: GitHub Dashboard
 
+#Instructions for running locally (Excerpt from Angula2.io https://angular.io/docs/ts/latest/guide/npm-packages.html )
+
+Node.js and npm are essential to Angular development.
+
+Get them now if they're not already installed on your machine.
+
+Verify that you are running node v4.x.x or higher and npm 3.x.
+Get them now if they're not already installed on your machinx or higher by running the commands node -v and npm -v in a terminal/console window. Older versions produce errors.
+
+Consider using nvm for managing multiple versions of node and npm. You may need nvm if you already have projects running on your machine that use other versions of node and npm.
+
+You can obtain these here: https://nodejs.org/en/download/ 
+(Node comes with npm on installation so just one download will be required) 
+
+Upon completion of Node/Npm install go to terminal/console and type in npm -v to verify the install was good. 
+
+Navigate to the location of the installed application. For example in my case it is C:/Development/git/techinterview-github/ 
+once you have reached the correct directory. Type these series of commands:
+*******************
+npm install
+npm start
+*******************
+
+it should open up a localhost instance listening on port 3000. 
 
 ##Purpose
 The purpose of this exercise is to assess the candidate’s ability to build cross platform software clients that satisfy stated requirements. The completed assignment should not only satisfy the requirements outlined below, but also give the candidate an opportunity to show-off their skills.
