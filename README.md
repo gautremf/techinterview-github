@@ -20,6 +20,7 @@ Navigate to the location of the installed application. For example in my case it
 once you have reached the correct directory. Type these series of commands:
 *******************
 npm install
+*******************
 npm start
 *******************
 
