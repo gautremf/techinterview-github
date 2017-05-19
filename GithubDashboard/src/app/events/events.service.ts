@@ -12,4 +12,7 @@ constructor(private http:Http) { }
     getEvents(): Observable<Event[]> {
         return this.http.get('https://api.github.com/events').map((res:Response) => res.json());
     }
+    getRepoDetails(uri: string){
+        return this.http.get(uri).map((res:Response) => res.json());
+    }
 }

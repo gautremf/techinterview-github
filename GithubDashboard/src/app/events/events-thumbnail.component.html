@@ -1,11 +1,13 @@
-<div class="row">
-    <div *ngFor="let event of events" class="col-md-5">
-        <div class="well hoverwell thumbnail">
-            <div><h3> Username: {{event?.actor.login}} </h3></div>
-            <hr/>
-            <div> Event Type: {{event?.type}}</div>
-            <div> Repo Name: {{event?.repo.name}}</div>
-            <div> 
+<div class="container">
+    <div class="row">
+        <div *ngFor="let event of events" class="col-md-6">
+            <div class="well hoverwell thumbnail">
+                <div><h3>Repo Name: {{event?.repo.name}} </h3></div>
+                <hr/>
+                <div> Event Type: {{event?.type}}</div>
+                <div>Username: {{event?.actor.login}}</div>
+                <div> 
+                </div>
             </div>
         </div>
     </div>

@@ -17,7 +17,6 @@ NavBarComponent = __decorate([
     core_1.Component({
         selector: 'nav-bar',
         templateUrl: 'app/nav/navbar.component.html',
-        styles: ["\n        .nav.navbar-nav {font-size: 15px;}\n        .btn.btn-default { background-color: #808080;}\n        .dropdown-toggle { background-color: #24292e;}\n        .dropdown-menu { background-color: #24292e;}\n        .container-fluid { background-color: #24292e;}\n        .navbar-form.navbar-right { position: relative; margin-left: 200px; width: 200px;}\n    "]
     })
 ], NavBarComponent);
 exports.NavBarComponent = NavBarComponent;

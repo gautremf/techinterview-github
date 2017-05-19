@@ -31,7 +31,6 @@ EventsThumbnailComponent = __decorate([
     core_1.Component({
         selector: 'event-thumbnail',
         templateUrl: './events-thumbnail.component.html',
-        styles: ["\n        .pad-left {margin-left: 5px; }\n        .well div { color: #ebebeb; }\n        .well.hoverwell.thumbnail { background-color: #24292e;}\n        .thumbnail {min-height: 210px;}\n    "],
         providers: [events_service_1.EventService]
     }),
     __metadata("design:paramtypes", [events_service_1.EventService])

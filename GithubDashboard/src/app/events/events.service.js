@@ -19,6 +19,9 @@ var EventService = (function () {
     EventService.prototype.getEvents = function () {
         return this.http.get('https://api.github.com/events').map(function (res) { return res.json(); });
     };
+    EventService.prototype.getRepoDetails = function (uri) {
+        return this.http.get(uri).map(function (res) { return res.json(); });
+    };
     return EventService;
 }());
 EventService = __decorate([

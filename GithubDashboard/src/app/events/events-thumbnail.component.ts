@@ -16,12 +16,6 @@ import 'rxjs/add/operator/distinctUntilChanged';
 
     selector: 'event-thumbnail',
     templateUrl: './events-thumbnail.component.html',
-    styles: [`
-        .pad-left {margin-left: 5px; }
-        .well div { color: #ebebeb; }
-        .well.hoverwell.thumbnail { background-color: #24292e;}
-        .thumbnail {min-height: 210px;}
-    `], 
     providers:[ EventService ]
 })
 
