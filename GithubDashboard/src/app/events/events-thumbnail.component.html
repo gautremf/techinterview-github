@@ -1,13 +1,16 @@
 <div class="container">
     <div class="row">
-        <div *ngFor="let event of events" class="col-md-6">
-            <div class="well hoverwell thumbnail">
-                <div><h3>Repo Name: {{event?.repo.name}} </h3></div>
+        <div *ngFor="let event of events; let i=index" class="col-md-6">
+            <div [attr.data-index]="i" class="well hoverwell thumbnail">
+                <div class="getDetails">
+                    <h3>Repo Name:{{event?.repo.name}}</h3>
+                </div>
                 <hr/>
                 <div> Event Type: {{event?.type}}</div>
                 <div>Username: {{event?.actor.login}}</div>
-                <div> 
-                </div>
+                <nav>
+                <a (click)="setDetailsUrl(event?.repo.url)" routerLink="/details">more details...</a>
+                </nav>
             </div>
         </div>
     </div>

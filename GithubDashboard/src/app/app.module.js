@@ -8,9 +8,16 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var core_1 = require("@angular/core");
 var platform_browser_1 = require("@angular/platform-browser");
 var http_1 = require("@angular/http");
+var router_1 = require("@angular/router");
 var events_thumbnail_component_1 = require("./events/events-thumbnail.component");
+var event_details_component_1 = require("./events/event-details.component");
 var navbar_component_1 = require("./nav/navbar.component");
 var app_component_1 = require("./app.component");
+var appRoutes = [
+    { path: 'dashboard', component: events_thumbnail_component_1.EventsThumbnailComponent },
+    { path: 'details', component: event_details_component_1.EventDetailsComponent },
+    { path: '', redirectTo: '/dashboard', pathMatch: 'full' }
+];
 var AppModule = (function () {
     function AppModule() {
     }
@@ -18,9 +25,11 @@ var AppModule = (function () {
 }());
 AppModule = __decorate([
     core_1.NgModule({
-        imports: [platform_browser_1.BrowserModule, http_1.HttpModule],
-        declarations: [app_component_1.AppComponent,
+        imports: [router_1.RouterModule.forRoot(appRoutes), platform_browser_1.BrowserModule, http_1.HttpModule],
+        declarations: [
+            app_component_1.AppComponent,
             events_thumbnail_component_1.EventsThumbnailComponent,
+            event_details_component_1.EventDetailsComponent,
             navbar_component_1.NavBarComponent
         ],
         bootstrap: [app_component_1.AppComponent]

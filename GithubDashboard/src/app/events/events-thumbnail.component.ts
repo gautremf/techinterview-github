@@ -13,7 +13,6 @@ import 'rxjs/add/operator/distinctUntilChanged';
 
 
 @Component({
-
     selector: 'event-thumbnail',
     templateUrl: './events-thumbnail.component.html',
     providers:[ EventService ]
@@ -31,8 +30,9 @@ export class EventsThumbnailComponent implements OnInit {
     }
 
     getEvents(){
-
-        this.eventService.getEvents().subscribe(events => this.events = events);
-        
+        this.eventService.getEvents().subscribe(events => this.events = events);   //get the events from the service
+    }
+    setDetailsUrl(url : string){
+        this.eventService.setDetailsUrl(url); 
     }
 }

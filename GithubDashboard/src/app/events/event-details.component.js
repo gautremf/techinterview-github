@@ -10,33 +10,37 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require("@angular/core");
 var events_service_1 = require("./events.service");
+var router_1 = require("@angular/router");
 require("rxjs/add/observable/of");
 require("rxjs/add/operator/catch");
 require("rxjs/add/operator/debounceTime");
 require("rxjs/add/operator/distinctUntilChanged");
-var EventsThumbnailComponent = (function () {
-    function EventsThumbnailComponent(eventService) {
+var EventDetailsComponent = (function () {
+    function EventDetailsComponent(eventService, route, router) {
         this.eventService = eventService;
+        this.route = route;
+        this.router = router;
     }
-    EventsThumbnailComponent.prototype.ngOnInit = function () {
-        this.getEvents();
+    EventDetailsComponent.prototype.ngOnInit = function () {
+        this.getDetails(this.getDetailsUrl());
     };
-    EventsThumbnailComponent.prototype.getEvents = function () {
+    EventDetailsComponent.prototype.getDetailsUrl = function () {
+        return this.eventService.getDetailsUrl();
+    };
+    EventDetailsComponent.prototype.getDetails = function (url) {
         var _this = this;
-        this.eventService.getEvents().subscribe(function (events) { return _this.events = events; }); //get the events from the service
+        this.eventService.getDetails(url).subscribe(function (details) { return _this.details = details; }); //get details for each repo
     };
-    EventsThumbnailComponent.prototype.setDetailsUrl = function (url) {
-        this.eventService.setDetailsUrl(url);
-    };
-    return EventsThumbnailComponent;
+    EventDetailsComponent.prototype.log = function (val) { console.log(val); };
+    return EventDetailsComponent;
 }());
-EventsThumbnailComponent = __decorate([
+EventDetailsComponent = __decorate([
     core_1.Component({
-        selector: 'event-thumbnail',
-        templateUrl: './events-thumbnail.component.html',
+        selector: 'event-details',
+        templateUrl: './event-details.component.html',
         providers: [events_service_1.EventService]
     }),
-    __metadata("design:paramtypes", [events_service_1.EventService])
-], EventsThumbnailComponent);
-exports.EventsThumbnailComponent = EventsThumbnailComponent;
-//# sourceMappingURL=events-thumbnail.component.js.map
+    __metadata("design:paramtypes", [events_service_1.EventService, router_1.ActivatedRoute, router_1.Router])
+], EventDetailsComponent);
+exports.EventDetailsComponent = EventDetailsComponent;
+//# sourceMappingURL=event-details.component.js.map

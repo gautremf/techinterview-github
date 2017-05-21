@@ -10,17 +10,25 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require("@angular/core");
 var http_1 = require("@angular/http");
+require("rxjs/add/operator/toPromise");
 require("rxjs/add/operator/map");
 var EventService = (function () {
     function EventService(http) {
         this.http = http;
+        this.url = "";
     }
     // Uses http.get() to load a single JSON file
     EventService.prototype.getEvents = function () {
-        return this.http.get('https://api.github.com/events').map(function (res) { return res.json(); });
+        return this.http.get('https://api.github.com/events?' + Date.now()).map(function (res) { return res.json(); });
     };
-    EventService.prototype.getRepoDetails = function (uri) {
+    EventService.prototype.getDetails = function (uri) {
         return this.http.get(uri).map(function (res) { return res.json(); });
+    };
+    EventService.prototype.setDetailsUrl = function (url) {
+        this.url = url;
+    };
+    EventService.prototype.getDetailsUrl = function () {
+        return this.url;
     };
     return EventService;
 }());
