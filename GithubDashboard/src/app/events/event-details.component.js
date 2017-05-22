@@ -10,26 +10,20 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require("@angular/core");
 var events_service_1 = require("./events.service");
-var router_1 = require("@angular/router");
 require("rxjs/add/observable/of");
 require("rxjs/add/operator/catch");
 require("rxjs/add/operator/debounceTime");
 require("rxjs/add/operator/distinctUntilChanged");
 var EventDetailsComponent = (function () {
-    function EventDetailsComponent(eventService, route, router) {
+    function EventDetailsComponent(eventService) {
         this.eventService = eventService;
-        this.route = route;
-        this.router = router;
     }
     EventDetailsComponent.prototype.ngOnInit = function () {
-        this.getDetails(this.getDetailsUrl());
+        this.getDetails();
     };
-    EventDetailsComponent.prototype.getDetailsUrl = function () {
-        return this.eventService.getDetailsUrl();
-    };
-    EventDetailsComponent.prototype.getDetails = function (url) {
+    EventDetailsComponent.prototype.getDetails = function () {
         var _this = this;
-        this.eventService.getDetails(url).subscribe(function (details) { return _this.details = details; }); //get details for each repo
+        this.eventService.getDetails().subscribe(function (details) { return _this.details = details; }); //get details for each repo
     };
     EventDetailsComponent.prototype.log = function (val) { console.log(val); };
     return EventDetailsComponent;
@@ -40,7 +34,7 @@ EventDetailsComponent = __decorate([
         templateUrl: './event-details.component.html',
         providers: [events_service_1.EventService]
     }),
-    __metadata("design:paramtypes", [events_service_1.EventService, router_1.ActivatedRoute, router_1.Router])
+    __metadata("design:paramtypes", [events_service_1.EventService])
 ], EventDetailsComponent);
 exports.EventDetailsComponent = EventDetailsComponent;
 //# sourceMappingURL=event-details.component.js.map

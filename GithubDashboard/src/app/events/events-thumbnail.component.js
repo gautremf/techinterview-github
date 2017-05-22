@@ -9,6 +9,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
+var detail_updates_1 = require("./detail-updates");
 var events_service_1 = require("./events.service");
 require("rxjs/add/observable/of");
 require("rxjs/add/operator/catch");
@@ -21,12 +22,15 @@ var EventsThumbnailComponent = (function () {
     EventsThumbnailComponent.prototype.ngOnInit = function () {
         this.getEvents();
     };
+    EventsThumbnailComponent.prototype.setRepoUrl = function (url) {
+        detail_updates_1.DetailUpdates.repoUrl = url;
+        console.log("Just after the click: " + this.repoUrl);
+        console.log("incoming paramater: " + url);
+        //this.eventService.setUrl(this.repoUrl); 
+    };
     EventsThumbnailComponent.prototype.getEvents = function () {
         var _this = this;
         this.eventService.getEvents().subscribe(function (events) { return _this.events = events; }); //get the events from the service
-    };
-    EventsThumbnailComponent.prototype.setDetailsUrl = function (url) {
-        this.eventService.setDetailsUrl(url);
     };
     return EventsThumbnailComponent;
 }());
@@ -34,7 +38,8 @@ EventsThumbnailComponent = __decorate([
     core_1.Component({
         selector: 'event-thumbnail',
         templateUrl: './events-thumbnail.component.html',
-        providers: [events_service_1.EventService]
+        providers: [events_service_1.EventService],
+        outputs: ['url']
     }),
     __metadata("design:paramtypes", [events_service_1.EventService])
 ], EventsThumbnailComponent);

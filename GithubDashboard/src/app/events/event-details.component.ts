@@ -4,6 +4,7 @@ import { Subject } from 'rxjs/Subject';
 import { EventService } from './events.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import {Http, Response} from '@angular/http'
+import { DetailUpdates } from './detail-updates';
 
 import 'rxjs/add/observable/of'; 
 import 'rxjs/add/operator/catch';
@@ -18,19 +19,16 @@ import 'rxjs/add/operator/distinctUntilChanged';
 
 export class EventDetailsComponent implements OnInit{
 
-    details: any[];
+    details: JSON[];
+    repoUrl: DetailUpdates; 
 
-    constructor(private eventService: EventService, private route: ActivatedRoute, private router: Router){}
- 
+    constructor(private eventService: EventService){}
+
     ngOnInit(){
-        this.getDetails(this.getDetailsUrl());
+        this.getDetails();        
     }
-
-    getDetailsUrl(): string{
-        return this.eventService.getDetailsUrl();
-    }
-    getDetails(url : string){
-        this.eventService.getDetails(url).subscribe(details => this.details = details); //get details for each repo
+    getDetails(){
+        this.eventService.getDetails().subscribe(details => this.details = details); //get details for each repo
     }
     log(val: any) { console.log(val); }
 } 

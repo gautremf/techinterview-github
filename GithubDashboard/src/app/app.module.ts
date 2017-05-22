@@ -11,7 +11,7 @@ import { AppComponent }  from './app.component';
 const appRoutes: Routes = [
   {path: 'dashboard', component: EventsThumbnailComponent},
   {path: 'details', component: EventDetailsComponent },
-  { path: '',   redirectTo: '/dashboard', pathMatch: 'full' }
+  {path: '',   redirectTo: '/dashboard', pathMatch: 'full' }
 ];
 
 @NgModule({

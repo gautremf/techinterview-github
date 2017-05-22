@@ -1,5 +1,5 @@
 import { Component } from '@angular/core'
-import { Routes } from '@angular/router';
+import { Routes, Router } from '@angular/router';
 
 import { AuthenticationService } from '../auth/authenticate.service';
   
@@ -14,11 +14,12 @@ export class NavBarComponent{
     model: any = {};
     loading = false;
     error = '';
+ 
 
     constructor(private authenticationService: AuthenticationService){
 
     }
-
+     
     login() {
         this.loading = true;
         this.authenticationService.login(this.model.username, this.model.password)

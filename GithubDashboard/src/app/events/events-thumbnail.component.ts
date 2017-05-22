@@ -1,6 +1,7 @@
-import { Component,Input, OnInit } from '@angular/core';
+import { Component,Output,OnInit, EventEmitter } from '@angular/core';
 
 import { Observable } from 'rxjs/Observable';
+import { DetailUpdates } from './detail-updates';
 import { Subject } from 'rxjs/Subject';
 import { EventService } from './events.service';
 
@@ -15,24 +16,28 @@ import 'rxjs/add/operator/distinctUntilChanged';
 @Component({
     selector: 'event-thumbnail',
     templateUrl: './events-thumbnail.component.html',
-    providers:[ EventService ]
+    providers:[ EventService ],
+    outputs: ['url']
 })
 
 
 export class EventsThumbnailComponent implements OnInit {
 
-    events: Event[];
+    events: JSON[];
+    repoUrl: DetailUpdates; 
 
     constructor(private eventService: EventService){}
 
-    ngOnInit(){
+    ngOnInit(){  
         this.getEvents();
     }
-
+    setRepoUrl(url: string){
+        DetailUpdates.repoUrl = url;
+        console.log("Just after the click: " + this.repoUrl);
+        console.log("incoming paramater: " + url);
+        //this.eventService.setUrl(this.repoUrl); 
+    }
     getEvents(){
         this.eventService.getEvents().subscribe(events => this.events = events);   //get the events from the service
-    }
-    setDetailsUrl(url : string){
-        this.eventService.setDetailsUrl(url); 
     }
 }

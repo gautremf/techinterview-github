@@ -1,12 +1,13 @@
 <div class="container">
     <div class="row">
         <div class="well hoverwell thumbnail">
-            <div class="getDetails">
-                <div>{{log(details)}} </div>
-                <h3>
-                    <a href="{{details?.owner.html_url}}"><img src="{{details?.owner.avatar_url}}" style="width:100px;height:70px"></a>
-                    Username: {{details?.owner.login}}
-                </h3>
+            <div class="image">
+                <a href="{{details?.owner.html_url}}"><img src="{{details?.owner.avatar_url}}"></a>
+            </div>
+            <br/>
+            <br/>
+            <div>
+                <strong> Username: {{details?.owner.login}} </strong>
             </div>
             <hr/>
             <div><h2><b>Details</b></h2></div>
@@ -14,8 +15,9 @@
             <div>Language: {{details?.language}}</div>
             <div>Watchers: {{details?.watchers}}</div>
             <div>Subscribers: {{details?.subscribers_count}}</div>
-            <div>Forks: {{details?.forks_count}}</div>
+            <div>Forks: {{details?.forks}}</div>
             <div><a href="{{details?.html_url}}">Click here to go to the repo</a></div>
         </div>
+        <button class="btn btn-default" routerLink = "/dashboard">Go Back</button>
     </div>
 </div>

@@ -1,15 +1,22 @@
 <div class="container">
+    <div class="row refresh"> 
+        <form id="refeshForm"  class="navbar-form navbar-left"  >
+            <button class="btn btn-default" >
+                Refresh API
+            </button>
+        </form>
+    </div>
     <div class="row">
         <div *ngFor="let event of events; let i=index" class="col-md-6">
             <div [attr.data-index]="i" class="well hoverwell thumbnail">
-                <div class="getDetails">
+                <div class="dashboard">
                     <h3>Repo Name:{{event?.repo.name}}</h3>
                 </div>
                 <hr/>
                 <div> Event Type: {{event?.type}}</div>
                 <div>Username: {{event?.actor.login}}</div>
                 <nav>
-                <a (click)="setDetailsUrl(event?.repo.url)" routerLink="/details">more details...</a>
+                <a (click)= "setRepoUrl(event?.repo.url)" routerLink="/details">more details...</a>
                 </nav>
             </div>
         </div>
