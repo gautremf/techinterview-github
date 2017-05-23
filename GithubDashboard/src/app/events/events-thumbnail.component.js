@@ -22,15 +22,15 @@ var EventsThumbnailComponent = (function () {
     EventsThumbnailComponent.prototype.ngOnInit = function () {
         this.getEvents();
     };
+    EventsThumbnailComponent.prototype.refreashAPI = function () {
+        this.getEvents();
+    };
     EventsThumbnailComponent.prototype.setRepoUrl = function (url) {
         detail_updates_1.DetailUpdates.repoUrl = url;
-        console.log("Just after the click: " + this.repoUrl);
-        console.log("incoming paramater: " + url);
-        //this.eventService.setUrl(this.repoUrl); 
     };
     EventsThumbnailComponent.prototype.getEvents = function () {
         var _this = this;
-        this.eventService.getEvents().subscribe(function (events) { return _this.events = events; }); //get the events from the service
+        this.eventService.getEvents().subscribe(function (events) { return _this.events = events; });
     };
     return EventsThumbnailComponent;
 }());

@@ -25,7 +25,6 @@ var EventDetailsComponent = (function () {
         var _this = this;
         this.eventService.getDetails().subscribe(function (details) { return _this.details = details; }); //get details for each repo
     };
-    EventDetailsComponent.prototype.log = function (val) { console.log(val); };
     return EventDetailsComponent;
 }());
 EventDetailsComponent = __decorate([

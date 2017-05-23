@@ -1,4 +1,7 @@
 "use strict";
+/**
+ * DetailUpdates is storing our user's repoUrl
+ */
 var DetailUpdates = (function () {
     function DetailUpdates() {
     }

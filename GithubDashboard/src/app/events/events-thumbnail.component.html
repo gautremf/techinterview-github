@@ -1,8 +1,8 @@
 <div class="container">
     <div class="row refresh"> 
-        <form id="refeshForm"  class="navbar-form navbar-left"  >
+        <form id="refeshForm" (click) = "refreshAPI()"  class="navbar-form navbar-left"  >
             <button class="btn btn-default" >
-                Refresh API
+                Refresh
             </button>
         </form>
     </div>
@@ -13,8 +13,12 @@
                     <h3>Repo Name:{{event?.repo.name}}</h3>
                 </div>
                 <hr/>
-                <div> Event Type: {{event?.type}}</div>
-                <div>Username: {{event?.actor.login}}</div>
+                <div> 
+                    Event Type: {{event?.type}}
+                </div>
+                <div>
+                    Username: {{event?.actor.login}}
+                </div>
                 <nav>
                 <a (click)= "setRepoUrl(event?.repo.url)" routerLink="/details">more details...</a>
                 </nav>

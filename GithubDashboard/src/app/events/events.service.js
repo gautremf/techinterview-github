@@ -13,14 +13,19 @@ var http_1 = require("@angular/http");
 var detail_updates_1 = require("./detail-updates");
 require("rxjs/add/operator/toPromise");
 require("rxjs/add/operator/map");
+/**
+ * This is a shared service that is being used by the event-details and events-thumbnail components.
+ *
+ */
 var EventService = (function () {
     function EventService(http) {
         this.http = http;
     }
-    // Uses http.get() to load a single JSON file
+    // Uses http.get() to hit the API.
     EventService.prototype.getEvents = function () {
         return this.http.get('https://api.github.com/events?' + Date.now()).map(function (res) { return res.json(); });
     };
+    // Uses http.get() to hit the repo URL.
     EventService.prototype.getDetails = function () {
         return this.http.get(detail_updates_1.DetailUpdates.repoUrl).map(function (res2) { return res2.json(); });
     };

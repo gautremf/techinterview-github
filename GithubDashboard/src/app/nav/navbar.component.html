@@ -3,7 +3,9 @@
     <div class="navbar-header">
       <a class="navbar-brand" >Github Public Events</a>
     </div>
-
+  </div>
+</div>
+<!--
     <div class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
         <li class="dropdown">
@@ -11,23 +13,29 @@
             Login
             <span class="caret"></span>
           </a>
-          <ul class="dropdown-menu">
+          <ul *ngIf="checkLogin()" class="dropdown-menu">
             <li >
-              <form name="login" (ngSubmit)="login.valid && login()" novalidate>
+              <form name="login" (submit) = "login(username.value, password.value)" novalidate>
                 <div class="form-group">
-                  <label for="authenticateUser">Username or Email address</label>
-                  <input type="email" class="form-control" id="authenticateUser" placeholder="Email" required>
+                  <label for="authenticateUser">Username: </label>
+                  <input type="email" #username class="form-control" name="username" id="authenticateUser" placeholder="username" required>
                 </div>
                 <div class="form-group">
-                  <label for="authenticatepass">Password</label>
-                  <input type="password" class="form-control" id="authenticatepass" placeholder="Password" required>
+                  <label for="authenticatepass">Password: </label>
+                  <input type="password" #password class="form-control" id="authenticatepass" placeholder="Password" required>
                 </div>
                 <button type="submit" class="btn btn-default">Submit</button>
               </form>
             </li>
           </ul>
+          <ul *ngIf="!checkLogin()" class="dropdown-menu"> 
+              <li>
+                <div (click)="logout()"> Logout </div>
+              </li>
+         </ul>
         </li>
       </ul>
     </div>
   </div>
 </div>
+-->

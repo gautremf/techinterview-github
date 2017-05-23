@@ -4,7 +4,6 @@ import { Subject } from 'rxjs/Subject';
 import { EventService } from './events.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import {Http, Response} from '@angular/http'
-import { DetailUpdates } from './detail-updates';
 
 import 'rxjs/add/observable/of'; 
 import 'rxjs/add/operator/catch';
@@ -16,11 +15,12 @@ import 'rxjs/add/operator/distinctUntilChanged';
     templateUrl: './event-details.component.html',
     providers: [EventService]
 })
-
+/**
+ * EventDetailsComponent is being used to populate the information in the /details page. 
+ */
 export class EventDetailsComponent implements OnInit{
 
     details: JSON[];
-    repoUrl: DetailUpdates; 
 
     constructor(private eventService: EventService){}
 
@@ -30,5 +30,4 @@ export class EventDetailsComponent implements OnInit{
     getDetails(){
         this.eventService.getDetails().subscribe(details => this.details = details); //get details for each repo
     }
-    log(val: any) { console.log(val); }
 } 

@@ -1,12 +1,10 @@
 import { Component,Output,OnInit, EventEmitter } from '@angular/core';
-
 import { Observable } from 'rxjs/Observable';
 import { DetailUpdates } from './detail-updates';
 import { Subject } from 'rxjs/Subject';
 import { EventService } from './events.service';
 
 import 'rxjs/add/observable/of'; 
-
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/distinctUntilChanged';
@@ -20,7 +18,10 @@ import 'rxjs/add/operator/distinctUntilChanged';
     outputs: ['url']
 })
 
-
+/**
+ * EventsThumbnailComponent class is being used populate the thumbnails on the dashboard.
+ * This class is also responsible for updating the selected user's repo url. 
+ */
 export class EventsThumbnailComponent implements OnInit {
 
     events: JSON[];
@@ -31,13 +32,13 @@ export class EventsThumbnailComponent implements OnInit {
     ngOnInit(){  
         this.getEvents();
     }
+    refreashAPI(){
+        this.getEvents()
+    }
     setRepoUrl(url: string){
         DetailUpdates.repoUrl = url;
-        console.log("Just after the click: " + this.repoUrl);
-        console.log("incoming paramater: " + url);
-        //this.eventService.setUrl(this.repoUrl); 
     }
     getEvents(){
-        this.eventService.getEvents().subscribe(events => this.events = events);   //get the events from the service
+        this.eventService.getEvents().subscribe(events => this.events = events); 
     }
 }

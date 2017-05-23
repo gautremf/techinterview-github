@@ -13,23 +13,17 @@ var authenticate_service_1 = require("../auth/authenticate.service");
 var NavBarComponent = (function () {
     function NavBarComponent(authenticationService) {
         this.authenticationService = authenticationService;
-        this.model = {};
         this.loading = false;
         this.error = '';
     }
-    NavBarComponent.prototype.login = function () {
-        var _this = this;
-        this.loading = true;
-        this.authenticationService.login(this.model.username, this.model.password)
-            .subscribe(function (result) {
-            if (result === true) {
-            }
-            else {
-                // login failed
-                _this.error = 'Username or password is incorrect';
-                _this.loading = false;
-            }
-        });
+    NavBarComponent.prototype.login = function (username, password) {
+        this.authenticationService.login(username, password);
+    };
+    NavBarComponent.prototype.checkLogin = function () {
+        return this.authenticationService.checkLogin();
+    };
+    NavBarComponent.prototype.logout = function () {
+        this.authenticationService.logout();
     };
     return NavBarComponent;
 }());
@@ -37,7 +31,7 @@ NavBarComponent = __decorate([
     core_1.Component({
         selector: 'nav-bar',
         providers: [authenticate_service_1.AuthenticationService],
-        templateUrl: 'app/nav/navbar.component.html',
+        templateUrl: './navbar.component.html',
     }),
     __metadata("design:paramtypes", [authenticate_service_1.AuthenticationService])
 ], NavBarComponent);
