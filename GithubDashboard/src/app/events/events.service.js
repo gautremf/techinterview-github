@@ -20,14 +20,16 @@ require("rxjs/add/operator/map");
 var EventService = (function () {
     function EventService(http) {
         this.http = http;
+        this.client_id = "e5cb269a3108836a85f1";
+        this.client_secret = "5ac6306b8ba75fc05423684c7e942b15a16e15bf";
     }
     // Uses http.get() to hit the API.
     EventService.prototype.getEvents = function () {
-        return this.http.get('https://api.github.com/events?' + Date.now()).map(function (res) { return res.json(); });
+        return this.http.get('https://api.github.com/events?' + Date.now() + "&client_id=" + this.client_id + "&client_secret=" + this.client_secret).map(function (res) { return res.json(); });
     };
     // Uses http.get() to hit the repo URL.
     EventService.prototype.getDetails = function () {
-        return this.http.get(detail_updates_1.DetailUpdates.repoUrl).map(function (res2) { return res2.json(); });
+        return this.http.get(detail_updates_1.DetailUpdates.repoUrl + "?client_id=" + this.client_id + "&client_secret=" + this.client_secret).map(function (res2) { return res2.json(); });
     };
     return EventService;
 }());
