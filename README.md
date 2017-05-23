@@ -16,8 +16,8 @@ You can obtain these here: https://nodejs.org/en/download/
 
 Upon completion of Node/Npm install go to terminal/console and type in npm -v to verify the install was good. 
 
-Navigate to the location of the installed application. For example in my case it is C:/Development/git/techinterview-github/ 
-once you have reached the correct directory. Type these series of commands:
+Navigate to the location of the installed application. For example in my case it is C:/Development/git/techinterview-github/GithubDashboard
+once you have reached the correct directory. Type these commands:
 *******************
 npm install
 *******************
